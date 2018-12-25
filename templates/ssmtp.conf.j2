@@ -9,8 +9,13 @@ RewriteDomain={{ sansible_ssmtp_mailserver_rewritedomain }}
 {% if sansible_ssmtp_mailserver_fromlineoverride != false %}
 FromLineOverride={{ sansible_ssmtp_mailserver_fromlineoverride }}
 {% endif %}
+{% if sansible_ssmtp_mailserver_notls == false %}
 UseTLS=Yes
 UseSTARTTLS=Yes
+{% endif %}
+{% if sansible_ssmtp_mailserver_authmethod != false %}
+AuthMethod={{ sansible_ssmtp_mailserver_authmethod }}
+{% endif %}
 {% if sansible_ssmtp_use_inventory_hostname == true %}
 hostname={{ inventory_hostname }}
 {% endif %}
