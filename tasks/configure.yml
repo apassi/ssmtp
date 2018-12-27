@@ -13,7 +13,7 @@
   template:
     dest: "/etc/ssmtp/{{ item }}"
     group: "{{ sansible_ssmtp_group }}"
-    mode: 0600
+    mode: "{{ sansible_ssmtp_conf_mode }}"
     owner: "{{ sansible_ssmtp_user }}"
     src: "{{ item }}.j2"
   with_items:
